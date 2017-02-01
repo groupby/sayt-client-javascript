@@ -18,7 +18,9 @@ const testCompileOpts = { compilerOptions: { sourceMap: false, declaration: fals
 const commands = module.exports = restart(start, {
   srcFiles: 'src/index.ts',
   outDir: 'dist/',
-  compile: typescript
+  compile: typescript,
+  lint: () => () => Promise.resolve(),
+  report: () => () => Promise.resolve()
 });
 
 commands.test = () => start(
