@@ -10,6 +10,7 @@ import read from 'start-read';
 import write from 'start-write';
 import split from 'start-split';
 import watch from 'start-watch';
+import * as istanbul from 'start-istanbul';
 import { restart } from 're-start';
 
 const start = Start(reporter());
@@ -17,8 +18,10 @@ const testCompileOpts = { compilerOptions: { sourceMap: false, declaration: fals
 
 const commands = module.exports = restart(start, {
   srcFiles: 'src/index.ts',
+  watchFiles: 'src/**/*.ts',
   outDir: 'dist/',
-  compile: typescript
+  compile: typescript,
+  lint: () => () => Promise.resolve()
 });
 
 commands.test = () => start(
@@ -34,6 +37,24 @@ commands.test = () => start(
   }),
   files('.scratch/test/index.js'),
   mocha()
+);
+
+commands.coverage = () => start(
+  env('NODE_ENV', 'test'),
+  files(['.scratch/', 'coverage/']),
+  clean(),
+  files('test/index.ts'),
+  read(),
+  typescript(testCompileOpts),
+  split({
+    src: () => [write('.scratch/src')],
+    test: () => [write('.scratch/test')]
+  }),
+  files('.scratch/src/**/*.js'),
+  istanbul.instrument({ esModules: true }),
+  files('.scratch/test/index.js'),
+  mocha(),
+  istanbul.report([ 'lcovonly', 'html', 'text-summary' ])
 );
 
 commands.tdd = () => start(

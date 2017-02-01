@@ -1,9 +1,9 @@
-import { constructors, theon, BaseApi, BaseConstructor, Builder, BUILDER } from 'groupby-client-core';
+import { constructors, theon, BaseConstructor, Builder, BUILDER } from 'groupby-client-core';
 
 namespace Autocomplete {
   export interface Constructor extends BaseConstructor<Request, Api, RequestBuilder> { }
 
-  export interface Api extends BaseApi, Constructor { }
+  export interface Api extends theon.Request, Constructor { }
 
   export interface Request {
     query?: string;

@@ -7,7 +7,7 @@ const api = theon()
   .basePath(BASE_PATH)
   // tslint:disable:max-line-length
   .validator((req, res, next) => next(req.body ? undefined : new Error('request validation error: must provide body')))
-  .validator(validators.bodyValidator<string>('query', (query) => !!query, 'must provide valid query'));
+  .validator(validators.bodyValidator<string>('query', (query) => !!query, 'must provide query'));
 // tslint:enable:max-line-length
 
 export default api;

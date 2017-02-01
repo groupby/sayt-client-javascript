@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import rootApi from '../src';
 import Products from '../src/products';
+import { middleware, validation } from './_suite';
 import { itShouldAcceptBuilder, itShouldSet } from './utils';
 
 const api = rootApi.sayt.products;
@@ -105,5 +106,13 @@ describe('sayt products action', () => {
         expect(builder.build()).to.eql({ productSort: '~price:A~popularity:D' });
       });
     });
+  });
+
+  describe('middleware', () => {
+    middleware(rootApi, 'products');
+  });
+
+  describe('validation', () => {
+    validation(api);
   });
 });

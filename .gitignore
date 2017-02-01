@@ -1,6 +1,8 @@
 node_modules/
 dist/
 .scratch/
+coverage/
+typings/
 src/**/*.js
 src/**/*.d.ts
 test/**/*.js

@@ -1,4 +1,4 @@
-import { renderAll, theon, BaseApi } from 'groupby-client-core';
+import { renderAll, theon } from 'groupby-client-core';
 import Autocomplete from './autocomplete';
 import Products from './products';
 import client from './root';
@@ -14,7 +14,7 @@ export interface Constructor {
   (): Api & theon.Request;
 }
 
-export interface Api extends BaseApi, Constructor {
+export interface Api extends theon.Request, Constructor {
   autocomplete: Autocomplete.Api;
   products: Products.Api;
 }

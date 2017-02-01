@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import rootApi from '../src';
 import Autocomplete from '../src/autocomplete';
+import { middleware, validation } from './_suite';
 import { itShouldAcceptBuilder, itShouldSet } from './utils';
 
 const api = rootApi.sayt.autocomplete;
@@ -67,5 +68,13 @@ describe('sayt autocomplete action', () => {
     describe('fuzzy()', () => {
       itShouldSet(api.Builder, 'fuzzy', undefined, { fuzzy: true });
     });
+  });
+
+  describe('middleware', () => {
+    middleware(rootApi, 'autocomplete');
+  });
+
+  describe('validation', () => {
+    validation(api);
   });
 });

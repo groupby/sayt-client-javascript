@@ -1653,6 +1653,14 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+groupby-client-core@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/groupby-client-core/-/groupby-client-core-1.0.1.tgz#82889142b272eb6f91f290926977ca69b59d11fd"
+  dependencies:
+    dot-prop "^4.1.0"
+    start-istanbul "^3.0.0"
+    theon "^0.1.28"
+
 growl@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.9.2.tgz#0ea7743715db8d8de2c5ede1775e1b45ac85c02f"
@@ -2786,9 +2794,9 @@ rc@^1.0.1, rc@^1.1.6, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-re-start@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/re-start/-/re-start-1.1.1.tgz#b96a9d8e870b17e5a88e03d1f69e89ffdaacba1d"
+re-start@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/re-start/-/re-start-1.2.0.tgz#e37eaca6441da0126a2387e16fae25f13bd143d3"
   dependencies:
     pkginfo "^0.4.0"
     start "^5.0.0"
