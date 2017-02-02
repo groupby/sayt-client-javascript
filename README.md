@@ -1,2 +1,2 @@
-# client-javascript
-JavaScript client for all GroupBy services
+# sayt-client-javascript
+JavaScript client for all GroupBy SAYT service
